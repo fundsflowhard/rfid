@@ -4,7 +4,7 @@ Paxton fobs and readers are popular in the UK especially the Net2 system where t
 
 Readers often look like this
 
-This how to covers how to read an exisiting tag and write data to another tag cloning it. If that tag has been authorised for entry the new tag will be able to gain entry and will be seen by the reader be the same tag. You can copy cards to fobs and fobs to cards.
+This how to covers how to read an exisiting tag and write data to another tag. If that tag has been authorised for entry the new tag will be able to gain entry and will be seen by the reader be the same tag effetively a clone. You can copy cards to fobs and fobs to cards.
 
 ## Equipment
 * An RFIDLer avialable here from one of the tools authors http://rfidiot.org/
@@ -14,8 +14,8 @@ This how to covers how to read an exisiting tag and write data to another tag cl
 
 These Paxton fobs use hitag2 technology and 
 
-## Atennas
-The RFIDler comes with a coil atenna that is very good for reading cards and sniffing readers. It does not however struggle with other tag form factors. In order to read and write to a Paxton fob I had to wind my own atenna. This is covered further down.
+## Antennas
+The RFIDler comes with a coil antenna that is very good for reading cards and sniffing readers. It does not however struggle with other tag form factors. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further down.
 
 ## Can I Emulate a Paxton fob?
 Not currently with an RFIDler. The data flow is more complicated than some other tags involving a back and forth of commands the reader could send. The chips in hitag2 cards handle these commands really well. Why not just use one of those i.e. clone to a hitag2 card.

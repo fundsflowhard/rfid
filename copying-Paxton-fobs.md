@@ -5,6 +5,7 @@ Paxton fobs and readers are popular in the UK especially the Net2 system where t
 
 Readers often look like this
 
+
 This how to covers how to read an exisiting tag and write data to another tag. If that tag has been authorised for entry the new tag will be able to gain entry and will be seen by the reader be the same tag effetively a clone. You can copy cards to fobs and fobs to cards.
 
 ## Equipment

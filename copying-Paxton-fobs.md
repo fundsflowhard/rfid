@@ -1,7 +1,7 @@
 # How to copy, read and write Paxton fobs and cards with an RFIDler
 
 Paxton fobs and readers are popular in the UK especially the Net2 system where the fobs look like this with a blue ring.
-![Paxton Fob](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/7b7fd8ee2695f9f9c056fe2bd96a2d59b8ab0af4/fob.jpg "Paxton Fob")
+![Paxton Fob](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/e107b53f4a6a4ad1747690544b244b3497e1738d/fob.jpg "Paxton Fob")
 
 Readers often look like this
 

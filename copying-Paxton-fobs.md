@@ -17,6 +17,20 @@ These Paxton fobs use hitag2 technology and
 ## Antennas
 The RFIDler comes with a coil antenna that is very good for reading cards and sniffing readers. It does not however struggle with other tag form factors. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further down.
 
+## Reading a card
+
+First we need to set the RFIDLer to hitag2 cards config
+set tag hitag2
+OK 
+*HITAG2> save
+OK
+HITAG2> 
+
+Next we need to try reading the tag serial number. This is readonly and cannot be changed but it is not used in identifying access. It can be read without knowing the password and logining into the tag and is also known as page 0.
+
+HITAG2> READER
+12345678
+
 ## Can I Emulate a Paxton fob?
 Not currently with an RFIDler. The data flow is more complicated than some other tags involving a back and forth of commands the reader could send. The chips in hitag2 cards handle these commands really well. Why not just use one of those i.e. clone to a hitag2 card.
 

@@ -17,4 +17,7 @@ These Paxton fobs use hitag2 technology and
 ## Atennas
 The RFIDler comes with a coil atenna that is very good for reading cards and sniffing readers. It does not however struggle with other tag form factors. In order to read and write to a Paxton fob I had to wind my own atenna. This is covered further down.
 
+## Can I Emulate a Paxton fob?
+Not currently with an RFIDler the data flow is more complicated than some other tags involving a back and forth of commands the reader could send. The chips in hitag2 cards handle these commands really well. Why not just use one of those i.e. clone to a hitag2 card.
+
 

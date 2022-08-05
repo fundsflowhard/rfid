@@ -21,6 +21,17 @@ These Paxton fobs use hitag2 technology and can be copied to hitag2 cards and fo
 ## Antennas
 The RFIDler comes with a coil antenna that is very good for reading cards and sniffing readers. It does not however do well with other tag form factors. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further [here](/natmchugh/18e82761dbce52fa284c87c190dc926f#creating-a-diy-antenna-for-paxton-fobs).
 
+## Connecting to your RFIDler
+
+This is done on the command line via a serial communication program. I used minicom which is available on a mac via brew or on Linux package managers. On windows PuTTY apparently has this functionality.
+
+You need to find out what device the RFIDler was monuted as when you plugged it in via usb. In my case it was at `/dev/tty.usbmodem092426...` and I found it by looking for the most recent mounted device in /dev.
+
+So to connect it was just
+```
+minicom -D /dev/tty.usbmodem092426B340191 -b 115200
+```
+
 ## Reading a tag
 
 First we need to set the RFIDLer to hitag2 cards config

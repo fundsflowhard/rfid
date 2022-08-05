@@ -19,7 +19,7 @@ This guide covers how to read an existing tag and write data to another tag. If 
 These Paxton fobs use hitag2 technology and can be copied to hitag2 cards and fobs etc.
 
 ## Antennas
-The RFIDler comes with a coil antenna that is very good for reading cards and sniffing readers. It does not however do well with other tag form factors. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further [here](/natmchugh/18e82761dbce52fa284c87c190dc926f#reading-a-card).
+The RFIDler comes with a coil antenna that is very good for reading cards and sniffing readers. It does not however do well with other tag form factors. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further [here](/natmchugh/18e82761dbce52fa284c87c190dc926f#creating-a-diy-antenna-for-paxton-fobs).
 
 ## Reading a tag
 

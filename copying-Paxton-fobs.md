@@ -1,11 +1,11 @@
 # How to copy, read and write Paxton fobs and cards with an RFIDler
 
 Paxton fobs and readers are popular in the UK especially the Net2 system where the fobs look like this with a blue ring.
-![Paxton Fob](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/main/fob.jpg "Paxton Fob")
+![Paxton Fob](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/fob.jpg "Paxton Fob")
 
 Readers often look like this
 
-![Paxton Reader](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/main/reader.jpg "Paxton Reader")
+![Paxton Reader](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/reader.jpg "Paxton Reader")
 
 
 This how to covers how to read an exisiting tag and write data to another tag. If that tag has been authorised for entry the new tag will be able to gain entry and will be seen by the reader be the same tag effetively a clone. You can copy cards to fobs and fobs to cards.

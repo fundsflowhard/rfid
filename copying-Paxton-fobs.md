@@ -8,7 +8,7 @@ Readers often look like this
 ![Paxton Reader](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/reader.jpg "Paxton Reader")
 
 
-This guide covers how to read an existing tag and write data to another tag. If that tag has been authorised for entry the new tag will be able to gain entry and will be seen by the reader to be the same tag, effectively a clone. You can copy cards to fobs and fobs to cards. From now on both fobs and cards will be referred to as tags.
+This guide covers how to read an existing tag and write data to another tag. If that tag has been authorised for entry the new tag will be able to gain entry and will be seen by the reader to be the same tag, effectively a clone. You can copy cards to fobs and fobs to cards. Hereafter both fobs and cards will be referred to as tags.
 
 ## Equipment
 * An RFIDLer available here from one of the tools authors http://rfidiot.org/
@@ -19,7 +19,7 @@ This guide covers how to read an existing tag and write data to another tag. If 
 These Paxton fobs use hitag2 technology and can be copied to hitag2 cards and fobs etc.
 
 ## Antennas
-The RFIDler comes with a coil antenna that is very good for reading cards and sniffing readers. It does not however do well with other tag form factors. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further [here]/(natmchugh/18e82761dbce52fa284c87c190dc926f#reading-a-card).
+The RFIDler comes with a coil antenna that is very good for reading cards and sniffing readers. It does not however do well with other tag form factors. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further [here](/natmchugh/18e82761dbce52fa284c87c190dc926f#reading-a-card).
 
 ## Reading a tag
 
@@ -62,9 +62,6 @@ OK
 
 *HITAG2> save
 OK
-
-HITAG2> read 1
-1: BDF5E846
 
 HITAG2> read 0
 0: 12345678

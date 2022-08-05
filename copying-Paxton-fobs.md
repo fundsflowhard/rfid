@@ -1,9 +1,11 @@
 # How to copy, read and write Paxton fobs and cards with an RFIDler
 
 Paxton fobs and readers are popular in the UK especially the Net2 system where the fobs look like this with a blue ring.
-![Paxton Fob](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/e107b53f4a6a4ad1747690544b244b3497e1738d/fob.jpg "Paxton Fob")
+![Paxton Fob](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/main/fob.jpg "Paxton Fob")
 
 Readers often look like this
+
+![Paxton Reader](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/main/reader.jpg "Paxton Reader")
 
 
 This how to covers how to read an exisiting tag and write data to another tag. If that tag has been authorised for entry the new tag will be able to gain entry and will be seen by the reader be the same tag effetively a clone. You can copy cards to fobs and fobs to cards.
@@ -63,4 +65,33 @@ Once you have this data you have all the info you need to clone the tag. The imp
 ## Can I Emulate a Paxton fob?
 Not currently with an RFIDler. The data flow is more complicated than some other tags involving a back and forth of commands the reader could send. The chips in hitag2 cards handle these commands really well. Why not just use one of those i.e. clone to a hitag2 card.
 
+## Writing a Fob
 
+To write a fob you need to load your fob data into the virtual tag or vtag.
+```
+set tag hitag2
+VWRITE 1 BDF5E846......
+
+```
+
+Check the contents of the VTAG
+
+```
+VTAG
+```
+
+If you are happy with the data as shown in the VTAG then you can clone onto another tag
+
+```
+CLONE <BDF5E846|4D494B52 >
+```
+
+The password used to clone the card at the end depends on where you got the card from. A new blank hitag2 card should have the password 4D494B52. If a tag has been set up for Paxton readers previously it will have the password BDF5E846.
+
+## Creating a DIY antenna for Paxton fobs
+
+I was able to read and write genuine Paxton fobs by creating a coil antenna that allowed the fob to placed inside. I estimated the inductuctance at 200µH. This suggested that with a coil diameter of 2cm roughly 120 turns would give similar impedance.
+
+My top tip for winding the antenna would be to use super glue to get the intial loops on and secure them at the correct height.
+
+![Antenna](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/antenna/fob.jpg "Antenna")

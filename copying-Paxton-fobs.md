@@ -25,16 +25,18 @@ The RFIDler comes with a coil antenna that is very good for reading cards and sn
 
 First we need to set the RFIDLer to hitag2 cards config
 ```
-set tag hitag2
-OK 
+RFIDler> set tag hitag2
+OK
+
 *HITAG2> save
 OK
-HITAG2> 
+
+HITAG2>
 ```
 Next we need to try reading the tag serial number. This is readonly and cannot be changed but it is not used in identifying access. It can be read without knowing the password and logging into the tag and is also known as page 0.
 
 ```
-HITAG2> READER
+HITAG2> reader
 12345678
 12345678
 12345678
@@ -47,19 +49,34 @@ The next step is to login to the tag by supplying the password.
 HITAG2> login BDF5E846
 06F907C2
 ```
-The response is the config bit and tag password. This is held on page 2 of the tag and is the same for all Paxton tags I tested.
+The response should be the config bit and tag password. This is held on page 2 of the tag and is the same for all Paxton tags I tested. If instead you get "Login failed!" don't give up just try again.
 
-Once you have logged in you can now read the 8 pages of data held on the tag.
+Once you have logged in you can now read the 8 pages of data held on the tag. But first you will need to set the the VTag type to hitag2 as well.
 
 ```
 HITAG2> read 0
-0: 12345678
+VTag not compatible!
+
+HITAG2> set vtag hitag2
+OK
+
+*HITAG2> save
+OK
+
 HITAG2> read 1
 1: BDF5E846
+
+HITAG2> read 0
+0: 12345678
+
+*HITAG2> read 1
+1: BDF5E846
+
+HITAG2> read 2
 …
 ```
 
-repeat up to page 7
+repeat all the way up to page 7
 Once you have this data you have all the info you need to clone the tag. The important pages are 4-7 these contain the data on which the system identifies for access.
 
 ## Can I Emulate a Paxton tag?
@@ -69,21 +86,62 @@ Not currently with an RFIDler. The data flow is more complicated than some other
 
 Despite not being able to emulate a hitag to write a tag you need to load your tag data into the virtual tag or vtag.
 ```
-set tag hitag2
-VWRITE 1 BDF5E846PAGE2DATAPAGE3DATA......
+HITAG2> VWRITE 1 BDF5E846PAGE2DATPAGE3DATPAGE4DATPAGE5DATPAGE6DATPAGE7DAT
+BDF5E846PAGE2DATPAGE3DATPAGE4DATPAGE5DATPAGE6DATPAGE7DAT
 
 ```
 
-Check the contents of the VTAG
+Where PAGE1DAT etc is the 8 hex digits you got by reading the original tag.
+
+Then check the contents of the VTAG
 
 ```
-VTAG
+HITAG2> vtag
+              Type: HITAG2
+         Emulating: NONE
+           Raw UID:
+               UID:
+
+     PWD Block (1): BDF5E846    ...F
+
+     Key Block (2): PAGE2DAT    ..-.
+
+  Config Block (3): PAGE3DAT
+
+        Page 1 & 2: 0 = Read / Write
+            Page 3: 0 = Read / Write
+        Page 4 & 5: 0 = Read / Write
+        Page 6 & 7: 0 = Read / Write
+          Security: 0 = Password
+              Mode: 0 = Public Mode B
+        Modulation: 0 = Manchester
+
+     PWD Block (3): GE3DAT      .=.
+
+              Data:
+                 0: 12345678
+                 1: BDF5E846
+                 2: PAGE2DAT
+                 3: PAGE3DAT
+                 4: PAGE4DAT
+                 5: PAGE5DAT
+                 6: PAGE6DAT
+                 7: PAGE7DAT
+
+
 ```
 
 If you are happy with the data as shown in the VTAG then you can clone onto another tag
 
 ```
-CLONE <BDF5E846|4D494B52 >
+CLONE <BDF5E846|4D494B52>
+1: BDF5E846
+2: PAGE2DAT
+4: PAGE4DAT
+5: PAGE5DAT
+6: PAGE6DAT
+7: PAGE7DAT
+
 ```
 
 The password used to clone the tag at the end depends on where you got the tag from. A new blank hitag2 tag should have the password 4D494B52. If a tag has been set up for Paxton readers previously it will have the password BDF5E846.
@@ -107,7 +165,7 @@ python rfidler.py /dev/tty.usbmodem... 'set tag hitag2' 'uid' plot 1500
 
 This sets the tag type as hitag2 and then asks the tag for its serial number before plotting the results.
 
-![Plot](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/plot.jpg "Plot")
+![Plot](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/plot.png "Plot")
 
 Once you start getting good pulses that can be easily distinguished from the background noise you can attempt to use the antenna to read a fob.
 

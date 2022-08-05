@@ -25,7 +25,7 @@ The RFIDler comes with a coil antenna that is very good for reading cards and sn
 
 This is done on the command line via a serial communication program. I used minicom which is available on a mac via brew or on Linux package managers. On windows PuTTY apparently has this functionality.
 
-You need to find out what device the RFIDler was monuted as when you plugged it in via usb. In my case it was at `/dev/tty.usbmodem092426...` and I found it by looking for the most recent mounted device in /dev.
+You need to find out what device the RFIDler was monuted as when you plugged it in via usb. In my case it was at `/dev/tty.usbmodem092426B340191` and I found it by looking for the most recent mounted device in /dev.
 
 So to connect it was just
 ```
@@ -168,7 +168,7 @@ To do this there is a python wrapper for rfidler that can call it via the api an
 
 ```
 cd python
-python rfidler.py /dev/tty.usbmodem... 'set tag hitag2' 'uid' plot 1500
+python rfidler.py /dev/tty.usbmodem092426B340191 'set tag hitag2' 'uid' plot 1500
 ```
 
 This sets the tag type as hitag2 and then asks the tag for its serial number before plotting the results.

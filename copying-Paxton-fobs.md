@@ -165,7 +165,7 @@ The new tag should be the same as the old tags as far as the reader is concerned
 
 I was able to read and write genuine Paxton fobs by creating a coil antenna that allowed the fob to be placed inside. The original coil has an inductance at 374µH. 
 
-![Original Coil](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/coil.png "Original Coil")
+![Original Coil](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/original_coil.png "Original Coil")
 
 With trial and error I created a similar inductance coil with diameter of 2.5cm roughly 140 turns.
 

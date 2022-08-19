@@ -1,14 +1,16 @@
 # How to copy, read and write Paxton fobs and cards with an RFIDler
 
-Paxton fobs and readers are popular in the UK especially the Net2 system where the fobs look like this with a blue ring. This guide should also work on other Paxton colours of fob used for the Switch2 system but I have not tested it on those.
+Paxton fobs and readers are popular in the UK especially the Net2 system where the fobs look like this with a blue ring:
 ![Paxton Fob](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/fob.jpg "Paxton Fob")
 
-Paxton readers often look like this
+Paxton readers often look like this:
 
 ![Paxton Reader](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/reader.jpg "Paxton Reader")
 
 
-This guide covers how to read an existing tag and write data to another tag. If the original tag has been authorised with the reader the new tag will be seen by the reader as the same tag, effectively a clone. You can copy cards to fobs and fobs to cards. Hereafter both fobs and cards will be referred to as tags.
+This guide covers how to read the data from an existing Paxton fob or card and also how to write data to a fob or card. If the original fob or card has been authorised with the reader the new fob or card will be seen by the reader as the same tag, effectively a clone. You can copy cards to fobs and fobs to cards. Hereafter both fobs and cards will be referred to as tags.
+
+These Paxton tags use hitag2 technology and so can be copied to any hitag2 cards, fobs or other tag form factor.
 
 ## Equipment used
 * An RFIDLer, available here from one of the tools authors http://rfidiot.org/
@@ -16,10 +18,10 @@ This guide covers how to read an existing tag and write data to another tag. If 
 * Some hitag2 tags See notes [here](/natmchugh/18e82761dbce52fa284c87c190dc926f#getting-hold-of-hitag2-tags). 
 * (optional) a soldering iron but you my be able to get away without one
 
-These Paxton tags use hitag2 technology and so can be copied to any hitag2 cards, fobs or other tag form factor.
-
 ## Antennas
 The RFIDler comes with a coil antenna that works well for reading cards and sniffing readers. It does not however work well with fobs. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further [here](/natmchugh/18e82761dbce52fa284c87c190dc926f#creating-a-diy-antenna-for-paxton-fobs).
+
+![Coil](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/coil.png "Coil")
 
 ## Connecting to your RFIDler
 
@@ -96,7 +98,7 @@ Not currently with an RFIDler. The data flow is more complicated than some other
 
 ## Writing a Tag
 
-Despite not being able to emulate a hitag to write a tag you need to load your tag data into the virtual tag or VTag.
+Despite not being able to emulate hitag2, to write a tag you need to load your tag data into the virtual tag or VTag.
 ```
 HITAG2> VWRITE 1 BDF5E846PAGE2DATPAGE3DATPAGE4DATPAGE5DATPAGE6DATPAGE7DAT
 BDF5E846PAGE2DATPAGE3DATPAGE4DATPAGE5DATPAGE6DATPAGE7DAT
@@ -105,7 +107,7 @@ BDF5E846PAGE2DATPAGE3DATPAGE4DATPAGE5DATPAGE6DATPAGE7DAT
 
 Where PAGE1DAT etc is the 8 hex digits you got by reading the original tag.
 
-Then check the contents of the VTag
+Once you have written to the VTag you can check the contents by issuing the vtag command
 
 ```
 HITAG2> vtag
@@ -143,7 +145,7 @@ HITAG2> vtag
 
 ```
 
-If you are happy with the data as shown in the VTAG you can then clone it onto another tag
+Once you are happy with the data as shown in the VTAG you can then clone it onto another tag
 
 ```
 CLONE <BDF5E846|4D494B52>
@@ -158,11 +160,13 @@ CLONE <BDF5E846|4D494B52>
 
 The password used to clone the tag at the end depends on where you got the tag from. A new blank hitag2 tag should have the password 4D494B52. If a tag has been set up for Paxton readers previously it will have the password BDF5E846.
 
+The new tag should be the same as the old tags as far as the reader is concerned.
+
 ## Creating a DIY antenna for Paxton fobs
 
 I was able to read and write genuine Paxton fobs by creating a coil antenna that allowed the fob to be placed inside. The original coil has an inductance at 374µH. With trial and error I created a similar inductance coil with diameter of 2.5cm roughly 140 turns.
 
-My top tip for winding the antenna would be to use super glue to get the initial loops on and secure them at the correct height and then electrical insulation tape to protect the coil and keep it in place.
+My top tip / life hack for winding the antenna would be to use super glue to get the initial loops on and secure them at the correct height and then electrical insulation tape to protect the coil and keep it in place.
 
 ![Antenna](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/paxton_antenna.jpg "Antenna")
 
@@ -187,4 +191,4 @@ This is actually one of the harder steps especially with hitag2 cards in smaller
 
 Paxton fobs can be widely picked up in packs of 10 for about £30 but this is much more than a hitag2 card should cost which is less than half that.
 
-If you want to give this guide a go I have a small quantity of genuine Paxton fobs I purchased and would be willing to sell individually for around cost price. If you would like to buy one of these contact me via github.
+If you want to give this guide a go I have a small quantity of genuine Paxton fobs I purchased and would be willing to sell individually for around cost price. If you would like one of these contact me via github. Also happy to clone tags for research.

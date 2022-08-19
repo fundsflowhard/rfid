@@ -21,7 +21,6 @@ These Paxton tags use hitag2 technology and so can be copied to any hitag2 cards
 ## Antennas
 The RFIDler comes with a coil antenna that works well for reading cards and sniffing readers. It does not however work well with fobs. In order to read and write to a Paxton fob I had to wind my own antenna. This is covered further [here](/natmchugh/18e82761dbce52fa284c87c190dc926f#creating-a-diy-antenna-for-paxton-fobs).
 
-![Coil](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/coil.png "Coil")
 
 ## Connecting to your RFIDler
 
@@ -164,7 +163,11 @@ The new tag should be the same as the old tags as far as the reader is concerned
 
 ## Creating a DIY antenna for Paxton fobs
 
-I was able to read and write genuine Paxton fobs by creating a coil antenna that allowed the fob to be placed inside. The original coil has an inductance at 374µH. With trial and error I created a similar inductance coil with diameter of 2.5cm roughly 140 turns.
+I was able to read and write genuine Paxton fobs by creating a coil antenna that allowed the fob to be placed inside. The original coil has an inductance at 374µH. 
+
+![Original Coil](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/coil.png "Original Coil")
+
+With trial and error I created a similar inductance coil with diameter of 2.5cm roughly 140 turns.
 
 My top tip / life hack for winding the antenna would be to use super glue to get the initial loops on and secure them at the correct height and then electrical insulation tape to protect the coil and keep it in place.
 

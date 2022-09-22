@@ -97,6 +97,8 @@ You cannot currently emulate hitag2 with an RFIDler. The data flow is more compl
 
 Another alternative is to convert the data on a paxton tag to an 8 bit id used by the EM41x system. Most paxton readers will read EM41x tags and it can be widely emulated for instance by a flipper zero. I have written a tool for converting the data held on pages 4 and 5 of a hitag fob to the id. It is available [here](https://htmlpreview.github.io/?https://gist.githubusercontent.com/natmchugh/e8f08350a606dc68bbffbc0f6c44017b/raw/paxton-covert.html).
 
+![emulating em41x](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/flip.gif "emulating ex41x")
+
 ## Writing a Tag
 
 Despite not being able to emulate hitag2, to write a tag you need to load your tag data into the virtual tag or VTag.

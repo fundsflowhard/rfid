@@ -95,7 +95,7 @@ Once you have this data you have all the info you need to clone the tag. The imp
 ## Can I Emulate a Paxton tag?
 You cannot currently emulate hitag2 with an RFIDler. The data flow is more complicated than some other tags involving a back and forth of commands the reader could send. The chips in hitag2 tags handle these commands really well. So why not just use one of those i.e. clone to a hitag2 tag.
 
-Another alternative is to convert the data on a paxton tag to an 8 bit id used by the EM41x system. Most paxton readers will read EM41x tags and it can be widely emulated for instance by a flipper zero. I have written a tool for converting the data held on pages 4 and 5 of a hitag fob to the id. It is available [here](https://badcfe.org/paxton-covert.html).
+Another alternative is to convert the data on a paxton tag to an 8 bit id used by the EM41x system. Most paxton readers will read EM41x tags and it can be widely emulated for instance by a flipper zero. I have written a tool for converting the data held on pages 4 and 5 of a hitag fob to the id. It is available [here](https://badcfe.org/paxton-covert.html). There is more info on using a flipper to open Paxton doors [here] (https://badcfe.org/how-to-flipper-a-paxton.html).
 
 ![emulating em41x](https://gist.githubusercontent.com/natmchugh/18e82761dbce52fa284c87c190dc926f/raw/flip.gif "emulating ex41x")
 
